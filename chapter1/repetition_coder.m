@@ -1,6 +1,7 @@
 % by Paulo Abelha
-% create redudancy by repting a given source column vector N times
+% Repetition encoder/decoder
 % encoding is a flag for whether we are encoding (1) or decoding (0)
+% function assumes s is a column vector
 function [ t ] = repetition_coder( encoding, s, n )
     if encoding
         t = zeros(size(s,1)*n,1);

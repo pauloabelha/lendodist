@@ -1,10 +1,6 @@
 % by Paulo Abelha
 % simulate the trasnmission of bits through a channel
 function [ d ] = transmit( s, coder_func, coder_params, channel_func, channel_params, plot_figs )
-    if plot_figs
-        figure;
-        bitimg2bw( s, 1 );
-    end
     % vetorise s
     orig_size = size(s);
     s = s(:);    
