@@ -1,0 +1,11 @@
+% by Paulo Abelha
+% create redudancy by repting a given source column vector N times
+function [ t ] = repetition_coding( s, n ) )
+    t = zeros(size(s,1)*n,1);
+    for i=1:n
+        t(i:2:size
+    end
+
+
+end
+
