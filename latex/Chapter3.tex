@@ -1,0 +1,103 @@
+\documentclass{article}
+\usepackage{mathtools,amssymb}
+\usepackage{color}
+
+\begin{document}
+
+
+\begin{gather}
+P(F_h \geq 140 | p_h =0.5, N=250) = \sum_{F_h=140}^{250} \binom{250}{F_h}0.5^{250} = 0.0332
+\end{gather}
+
+$\mathcal{H}_0$ : Coin is fair
+
+$\mathcal{H}_1$ : Coin is biased
+
+$D$ : Data of 140 heads in 250 spins
+
+$F_h$ : 140 (frequency of heads)
+
+$F_t$ : 110 (frequency of tails)
+
+$p_h$ : Probability of heads
+
+Getting model comparison.
+
+\begin{gather}
+P(\mathcal{H}_0 | D) = \frac{P(D | \mathcal{H}_0)P(\mathcal{H}_0)}{P(D)}
+\end{gather}
+
+\begin{gather}
+P(\mathcal{H}_1 | D) = \frac{P(D | \mathcal{H}_1)P(\mathcal{H}_1)}{P(D)}
+\end{gather}
+
+\begin{gather}
+P(\mathcal{H}_0) = P(\mathcal{H}_1) = \frac{1}{2}
+\end{gather}
+
+\begin{gather}
+\frac{P(\mathcal{H}_1 | D)}{P(\mathcal{H}_0 | D)} = \frac{P(D | \mathcal{H}_1)}{P(D | \mathcal{H}_0)}
+\end{gather}
+
+Done getting model comparison.
+
+Getting $P(D|\mathcal{H}_1)$ :
+
+\begin{gather}
+P(D|\mathcal{H}_1) = \int_0^1 \! \mathrm{d}p_h P(D|P_h,\mathcal{H}_1)P(p_h|\mathcal{H}_1)
+\end{gather}
+
+\begin{gather}
+P(D|P_h,\mathcal{H}_1) = p_h^{F_h}(1 - p_h)^{F_t}
+\end{gather}
+
+\begin{gather}
+P(p_h|\mathcal{H}_1) = 1
+\end{gather}
+
+\begin{gather}
+P(D|\mathcal{H}_1) = \int_0^1 \! \mathrm{d}p_h P(D|P_h,\mathcal{H}_1) =  \int_0^1 \! \mathrm{d}p_h p_h^{F_h}(1 - p_h)^{F_t}
+\end{gather}
+
+\begin{gather}
+B(x,y) = \int_0^1 \! \mathrm{d}t t^{x-1}(1-t)^{y-1} = \frac{\Gamma(x)\Gamma(y)}{\Gamma(x+y)}
+\end{gather}
+
+\begin{gather}
+P(D|\mathcal{H}_1) = B(F_h+1,F_t+1) = \frac{\Gamma(F_h+1)\Gamma(F_t+1)}{\Gamma(F_h+F_t+2)}
+\end{gather}
+
+\begin{gather}
+\Gamma(x) = (n-1)!
+\end{gather}
+
+\begin{gather}
+P(D|\mathcal{H}_1) = \frac{(F_h+1)!(F_t+1)!}{(F_h+F_t+1)!} = \frac{F_h!F_t!}{(F+1)!}
+\end{gather}
+
+End of getting $P(D|\mathcal{H}_1)$.
+
+Getting $P(D|\mathcal{H}_0)$ :
+
+\begin{gather}
+p_f = \frac{1}{2}
+\end{gather}
+
+\begin{gather}
+P(D|\mathcal{H}_0) = \Big(\frac{1}{2}\Big)^{F_h}\Big(1 - \Big(\frac{1}{2}\Big)^{F_t}\Big) = \Big(\frac{1}{2}\Big)^{F}
+\end{gather}
+
+Done getting $P(D|\mathcal{H}_0)$.
+
+Computing model comparison:
+
+\begin{gather}
+\frac{P(\mathcal{H}_1 | D)}{P(\mathcal{H}_0 | D)} = \frac{\frac{F_h!F_t!}{(F+1)!}}{\Big(\frac{1}{2}\Big)^{F}} =  \frac{\frac{140!110!}{251!}}{\Big(\frac{1}{2}\Big)^{250}} \cong 0.48
+\end{gather}
+
+End computing model comparison.
+
+
+
+
+\end{document}
