@@ -1,7 +1,7 @@
 %% clear memory
 clear;
 %% define constants to experiment with
-N = 4;
+N = 15;
 p1 = 0.1;
 p0 = 1 - p1;
 % cardinality of N
